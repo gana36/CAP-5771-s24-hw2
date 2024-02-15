@@ -23,40 +23,40 @@ def question1():
     level2_left = {}
     level2_right = {}
 
-    level1["smoking"] = 0.
-    level1["smoking_info_gain"] = 0.
+    level1["smoking"] = 1.0
+    level1["smoking_info_gain"] =0.2780719051126377
 
-    level1["cough"] = 0.
-    level1["cough_info_gain"] = 0.
+    level1["cough"] = 0.0
+    level1["cough_info_gain"] =0.034851554559677034
 
-    level1["radon"] = 0.
-    level1["radon_info_gain"] = 0.
+    level1["radon"] = 0.0
+    level1["radon_info_gain"] = 0.23645279766002802
 
     level1["weight_loss"] = 0.0
-    level1["weight_loss_info_gain"] = 0.
+    level1["weight_loss_info_gain"] = 0.02904940554533142
 
-    level2_left["smoking"] = 0.
-    level2_left["smoking_info_gain"] = 0.
-    level2_right["smoking"] = 0.
-    level2_right["smoking_info_gain"] = 0.
+    level2_left["smoking"] = -1.0
+    level2_left["smoking_info_gain"] = 0.0
+    level2_right["smoking"] = -1.0
+    level2_right["smoking_info_gain"] = 0.0
 
-    level2_left["radon"] = 0.
-    level2_left["radon_info_gain"] = 0.
+    level2_left["radon"] = 0.0
+    level2_left["radon_info_gain"] = 0.11346950154301272
 
-    level2_left["cough"] = 0.
-    level2_left["cough_info_gain"] = 0.
+    level2_left["cough"] = 1.0
+    level2_left["cough_info_gain"] = 0.7219280948873623
 
-    level2_left["weight_loss"] = 0.
-    level2_left["weight_loss_info_gain"] = 0.
+    level2_left["weight_loss"] = 0.0
+    level2_left["weight_loss_info_gain"] = 0.17095059445466865
 
-    level2_right["radon"] = 0.
-    level2_right["radon_info_gain"] = 0.
+    level2_right["radon"] = 1.0
+    level2_right["radon_info_gain"] =0.7219280948873623
 
-    level2_right["cough"] = 0.
-    level2_right["cough_info_gain"] = 0.
+    level2_right["cough"] = -1.0
+    level2_right["cough_info_gain"] = 0.0
 
-    level2_right["weight_loss"] = 0.
-    level2_right["weight_loss_info_gain"] = 0.
+    level2_right["weight_loss"] = 0.0
+    level2_right["weight_loss_info_gain"] = 0.17095059445466865
 
     answer["level1"] = level1
     answer["level2_left"] = level2_left
@@ -77,16 +77,23 @@ def question1():
 
 def question2():
     answer = {}
-
+    #question_a
+    p_a= 0.4*0.8 + 0.3*0.3
+    p_b=0.6*0.7 + 0.2*0.2
+    p_c=0.2*0.2 + 0.3*0.3
+    log_a=u.log2(p_a)
+    log_b=u.log2(p_b)
+    log_c=u.log2(p_c)
+    H_x2=-(p_a*log_a + p_b*log_b+p_c*log_c)
     # Answers are floats
-    answer["(a) entropy_entire_data"] = 0.
+    answer["(a) entropy_entire_data"] = H_x2
     # Infogain
-    answer["(b) x <= 0.2"] = 0.
-    answer["(b) x <= 0.7"] = 0.
-    answer["(b) y <= 0.6"] = 0.
+    answer["(b) x <= 0.2"] = 0.17739286055515824
+    answer["(b) x <= 0.7"] = 0.3557029418697566
+    answer["(b) y <= 0.6"] = 0.34781842724338197
 
     # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'
-    answer["(c) attribute"] = ""  
+    answer["(c) attribute"] =  'x=0.7'
 
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
@@ -103,18 +110,18 @@ def question3():
     answer = {}
 
     # float
-    answer["(a) Gini, overall"] = 0.
+    answer["(a) Gini, overall"] = 0.5
 
     # float
     answer["(b) Gini, ID"] = 0.0
-    answer["(c) Gini, Gender"] = 0.
-    answer["(d) Gini, Car type"] = 0.
-    answer["(e) Gini, Shirt type"] = 0.
+    answer["(c) Gini, Gender"] = 0.48
+    answer["(d) Gini, Car type"] = 0.16250000000000003
+    answer["(e) Gini, Shirt type"] = 0.49142857142857144
 
-    answer["(f) attr for splitting"] = ""
+    answer["(f) attr for splitting"] = "Car type"
 
     # Explanatory text string
-    answer["(f) explain choice"] = ""
+    answer["(f) explain choice"] = "Observing the above gini impurity measures, it looks like ID best suites for the first split (root). But in general using ID as root doesn't produce valid/consistent results on unseen/test set. So we have to choose the next least impurity. which was Using Car Type for the first decision"
 
     return answer
 
@@ -140,40 +147,40 @@ def question4():
     # Explain if there is more than one interpretation. Repeat for the other questions. At least five words that form a sentence.
     answer["a: explain"] = ""
 
-    answer["b"] = []
-    answer["b: explain"] = ""
+    answer["b"] = ["continuous", "qunatitative", "ratio"]
+    answer["b: explain"] = "(0 light year if it doesn;t take time, 6 light years is 2 times of 3 light years)"
 
     answer["c"] = []
     answer["c: explain"] = ""
 
-    answer["d"] = []
-    answer["d: explain"] = ""
+    answer["d"] = ["contiuous", "qunatitaive", "ratio"]
+    answer["d: explain"] = "5 +5 and 2*5 both can make 10 angle"
 
-    answer["e"] = []
+    answer["e"] = ["discrete", "qualitative", "ordinal"]
     answer["e: explain"] = ""
 
-    answer["f"] = []
+    answer["f"] = ["continuous", "quantitative", "ratio"]
     answer["f: explain"] = ""
 
-    answer["g"] = []
+    answer["g"] = ["discrete", "quantitative", "ratio"]
     answer["g: explain"] = ""
 
-    answer["h"] = []
+    answer["h"] = ["discrete", "qualitative", "nominal"]
     answer["h: explain"] = ""
 
-    answer["i"] = []
-    answer["i: explain"] = ""
+    answer["i"] = ["discrete", "qualitative", "nominal"]
+    answer["i: explain"] = "If we doesn't consider the fact that the one that passes the more amount light is higher and ectera, if we consider this into account it will be ordinal"
 
-    answer["j"] = []
+    answer["j"] = ["discrete", "qualitative", "ordinal"]
     answer["j: explain"] = ""
 
-    answer["k"] = []
-    answer["k: explain"] = ""
+    answer["k"] = ["continuous", "quantitative", "ratio"]
+    answer["k: explain"] = "In google maps if we say we are 0 feet away which means which indicates absolute 0, also you can say hcb is twice as far as union which indicates its a ratio"
 
-    answer["l"] = []
+    answer["l"] = ["continuous", "quantitative", "ratio"]
     answer["l: explain"] = ""
 
-    answer["m"] = []
+    answer["m"] = ["discrete", 'qualitative', "nominal"]
     answer["m: explain"] = ""
 
     return answer
@@ -188,18 +195,18 @@ def question5():
     # Read appropriate section of book chapter 3
 
     # string: one of 'Model 1' or 'Model 2'
-    explain["a"] = ""
-    explain["a explain"] = ""
+    explain["a"] = "Model 2"
+    explain["a explain"] = "Its because if a model perform 98'%' accuracy on trainset and 72'%' on test set, it indicates there is a lot of variance, indicates model might have overfitted on trainset"
 
     # string: one of 'Model 1' or 'Model 2'
-    explain["b"] = ""
-    explain["b explain"] = ""
+    explain["b"] = "Model 2"
+    explain["b explain"] = "Performance is almost the same 81 and 85 not much of a difference, but Occams Razor states that if model have identical performance, choose the one that has low complexity (here pruned model [model 2]) as it(pruning) ensures model from getting overfit"
 
-    explain["c similarity"] = ""
-    explain["c similarity explain"] = ""
+    explain["c similarity"] = "Complexity Term"
+    explain["c similarity explain"] = "If the model is complex (either depth or number of leaves), the complexity term in both the calculations(MDL and pessimistic) will penalize the error in the same direction. In case of Pessimistic if K is more, the penalty will be higher. Also in case of MDL when the children are high, the complexity increases."
 
-    explain["c difference"] = ""
-    explain["c difference explain"] = ""
+    explain["c difference"] = "Representation of Weights and Errors"
+    explain["c difference explain"] = "In MDL values are represent using bits, where as its not the same in case of Pessimistic Error"
 
     return explain
 
@@ -238,19 +245,19 @@ def question7():
     answer = {}
 
     # float
-    answer["a, info gain, ID"] = 0.
-    answer["b, info gain, Handedness"] = 0.
+    answer["a, info gain, ID"] = 1.0
+    answer["b, info gain, Handedness"] = 0.5310044064107188
 
     # string: "ID" or "Handedness"
-    answer["c, which attrib"] = ""
+    answer["c, which attrib"] = "ID"
 
     # answer is a float
-    answer["d, gain ratio, ID"] = 0.
-    answer["e, gain ratio, Handedness"] = 0.
+    answer["d, gain ratio, ID"] = 0.23137821315975915
+    answer["e, gain ratio, Handedness"] = 0.5310044064107188
 
     # string: one of 'ID' or 'Handedness' based on gain ratio
     # choose the attribute with the largest gain ratio
-    answer["f, which attrib"] = ""
+    answer["f, which attrib"] = "Handedness"
 
     return answer
 
