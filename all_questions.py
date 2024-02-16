@@ -177,7 +177,7 @@ def question4():
     answer["h"] = ["discrete", "qualitative", "nominal"]
     answer["h: explain"] = ""
 
-    answer["i"] = ["discrete", "qualitative", "nominal"]
+    answer["i"] = ["discrete", "qualitative", "ordinal"]
     answer["i: explain"] = "If we doesn't consider the fact that the one that passes the more amount light is higher and ectera, if we consider this into account it will be ordinal"
 
     answer["j"] = ["discrete", "qualitative", "ordinal"]
