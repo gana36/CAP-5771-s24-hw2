@@ -211,11 +211,11 @@ def question5():
     explain["b"] = "Model 2"
     explain["b explain"] = "Performance is almost the same 81 and 85 not much of a difference, occams Razor states that if model have identical performance, choose the one that has low complexity (here pruned model [model 2]) as it(pruning) ensures model from getting overfit."
 
-    explain["c similarity"] = "Complexity Term"
-    explain["c similarity explain"] = "If the model is complex (either depth or number of leaves), the complexity term in both the calculations(MDL and pessimistic) will penalize the error in the same direction. In case of Pessimistic if K is more, the penalty will be higher. Also in case of MDL when the children are high, the complexity increases."
+    explain["c similarity"] = "Regularization"
+    explain["c similarity explain"] = "Both of them tries to reduce overfitting by penalizing models(if they were complex). If the model is complex (either depth or number of leaves), the complexity term in both the calculations(MDL and pessimistic) will penalize the error in the same direction. In case of Pessimistic if K is more, the penalty will be higher. Also in case of MDL when the children are high, the complexity increases."
 
     explain["c difference"] = "Representation of Weights and Errors"
-    explain["c difference explain"] = "In MDL values are represent using bits, where as its not the same in case of Pessimistic Error"
+    explain["c difference explain"] = "In MDL values are represent using bits, where as its not the same in case of Pessimistic Error. MDL aims for a model that requires fewer bits to describe, on contrary pessimistic error adjusts tree error to avoid complex trees. "
 
     return explain
 
@@ -233,19 +233,19 @@ def question6():
     answer["a, level 2, right"] ="A"
     answer["a, level 2, left"] = "y<=0.4"
     answer["a, level 3, left"] = "A"
-    answer["a, level 3, right"] = "x<=0.2"
+    answer["a, level 3, right"] = "B"
 
     # When we move to right node of y =0.4
     # We pruned the tree (2 level) as class B, because only 6%(0.2*0.3) of A's will go through that decision, And rest all the A's have their own 
-    err=0.2*0.3
-    answer["b, expected error"] = err
+    #err=0.2*0.3
+    answer["b, expected error"] = 0.06
 
     # Use u.BinaryTree to define the tree. Create your tree.
     # Replace "root node" by the proper node of the form "z <= float"
     tree = u.BinaryTree("x<=0.5")
     A=tree.insert_left("y<=0.4")
     C=A.insert_left('A')
-    A.insert_right('x<=0.2')
+    A.insert_right('B')
 
     B=tree.insert_right("A")
     answer["c, tree"] = tree
