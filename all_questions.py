@@ -214,7 +214,7 @@ def question5():
     explain["c similarity"] = "Regularization"
     explain["c similarity explain"] = "Both of them tries to reduce overfitting by penalizing models(if they were complex). If the model is complex (either depth or number of leaves), the complexity term in both the calculations(MDL and pessimistic) will penalize the error in the same direction. In case of Pessimistic if K is more, the penalty will be higher. Also in case of MDL when the children are high, the complexity increases."
 
-    explain["c difference"] = "Representation of Weights and Errors"
+    explain["c difference"] = "Representation of Weights and Errors and their properties"
     explain["c difference explain"] = "In MDL values are represent using bits, where as its not the same in case of Pessimistic Error. MDL aims for a model that requires fewer bits to describe, on contrary pessimistic error adjusts tree error to avoid complex trees. "
 
     return explain
