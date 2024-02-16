@@ -100,9 +100,9 @@ def question2():
 
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
-    tree = u.BinaryTree("x<0.7")
+    tree = u.BinaryTree("x<=0.7")
     
-    A=tree.insert_left("y<0.6")
+    A=tree.insert_left("y<=0.6")
     A.insert_left("B")
     C=A.insert_right("x<0.2")
     D=C.insert_left("y<0.8")
@@ -240,7 +240,7 @@ def question6():
     answer["a, level 2, right"] ="A"
     answer["a, level 2, left"] = "y<=0.4"
     answer["a, level 3, left"] = "A"
-    answer["a, level 3, right"] = "x=0.2"
+    answer["a, level 3, right"] = "x<=0.2"
 
     # run each datum through the tree. Count the number of errors and divide by number of samples. .
     # Since we have areas: calculate the area that is misclassified (total area is unity)
